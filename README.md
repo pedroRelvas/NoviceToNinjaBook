@@ -1,2 +1,0 @@
-# NoviceToNinjaBook
-Created with CodeSandbox
