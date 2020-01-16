@@ -2,7 +2,7 @@
   "name": "novice-to-ninja-js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.html",
+  "main": "hero/hero.html",
   "scripts": {
     "start": "serve"
   },
