@@ -1,5 +1,5 @@
 const form = document.forms["hero"];
-form.addEventListener("submit", makeHero, false);
+form.addEventListener("submit", validate, false);
 
 function makeHero(event) {
   event.preventDefault(); //prevent the form from being submited
@@ -27,3 +27,17 @@ function makeHero(event) {
   alert(JSON.stringify(hero)); //convert object to JSON string and displayin alert dialog
   return hero;
 }
+
+function validate(event) {
+  const XLetter = form.heroName.value[0];
+  if (XLetter.toUpperCase() === "X") {
+    event.preventDefault;
+    alert("it can't start with an X");
+  } else {
+    makeHero();
+  }
+}
+
+const label = form.querySelector("label");
+const error = document.createElement("div");
+error.classList.add("error");
