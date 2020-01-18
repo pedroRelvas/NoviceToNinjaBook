@@ -9,6 +9,9 @@ function makeHero(event) {
   hero.name = form.heroName.value; // create a name property based on the input field value
   hero.realName = form.realName.value;
   hero.category = form.category.value;
+  hero.age = form.age.value;
+  hero.city = form.city.value;
+  hero.origin = form.origin.value;
   /*   hero.powers = [];
 
   for (let i = 0; i < form.powers.length; i++) {
@@ -21,6 +24,6 @@ function makeHero(event) {
     .filter(box => box.checked)
     .map(box => box.value);
 
-  alert(JSON.stringify(hero.powers)); //convert object to JSON string and displayin alert dialog
+  alert(JSON.stringify(hero)); //convert object to JSON string and displayin alert dialog
   return hero;
 }
