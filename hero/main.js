@@ -1,6 +1,7 @@
 const form = document.forms["hero"];
 form.addEventListener("submit", validate, false);
-
+form.heroName.addEventListener("keyup", validateInline, false);
+//form.heroName.addEventListener("keyup", disableSubmit, false);
 function makeHero(event) {
   event.preventDefault(); //prevent the form from being submited
 
@@ -41,3 +42,22 @@ function validate(event) {
 const label = form.querySelector("label");
 const error = document.createElement("div");
 error.classList.add("error");
+error.textContent = "Your name is now allowed to start with X";
+label.append(error);
+
+function validateInline() {
+  const heroName = this.value.toUpperCase();
+  if (heroName.startsWith("X")) {
+    error.style.display = "block";
+  } else {
+    error.style.display = "none";
+  }
+}
+
+function disableSubmit(event) {
+  if (event.target.value === "") {
+    document.getElementById("submit").disabled = true;
+  } else {
+    document.getElementById("submit").disabled = false;
+  }
+}
