@@ -1,3 +1,23 @@
+//use strict";
+
+/* function strictly(){
+  'use strict';
+  //Only the code here written will be policed by use strict agent
+} */
+
+//recommended way to use 'use strict'
+/* (function() {
+  "use strict";
+  //All my code would go inside this function
+})(); */
+
+//como o es6 introduziu o javascript modules, estes já contÊm o use strict de raiz
+
+/* feature detection example */
+if (window.lelo) {
+  console.log("ford transits for everyone");
+}
+
 const form = document.forms["hero"];
 form.addEventListener("submit", validate, false);
 form.heroName.addEventListener("keyup", validateInline, false);
