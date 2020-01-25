@@ -2,7 +2,7 @@
 //const form = document.getElementsByTagName('form')[0]; OR
 //const form = document.forms.search; //"search" is the name attribute OR
 const form = document.forms["search"];
-
+const formRaiz = document.forms["formRaiz"];
 //form object
 const [input, button] = form.elements;
 const inputLouco = form["searchInput"];
@@ -22,6 +22,7 @@ inputLouco.addEventListener(
   () => {
     if (inputLouco.value === "Aqui pa") {
       inputLouco.value = "";
+      throw new Error("motherfucker");
     }
   },
   false
@@ -41,3 +42,47 @@ inputLouco.addEventListener(
 console.log(form);
 console.log(button);
 console.log(inputLouco);
+
+function squareRoot(number) {
+  if (number < 0) {
+    throw new RangeError("You can't handle the truth");
+  }
+  return Math.sqrt(number);
+}
+
+console.log(squareRoot(121));
+
+function imaginarySquareRoot(number) {
+  let answer;
+  try {
+    answer = String(squareRoot(number));
+  } catch (error) {
+    answer = squareRoot(-number) + "i";
+  } finally {
+    return `+ or - ${answer}`;
+  }
+}
+
+console.log(imaginarySquareRoot(-49));
+
+/* const raizQuadradaInput = document.getElementsByName(formRaiz["raizQuadrada"]);
+const raizQuadradaInputValue = raizQuadradaInput.value;
+const getRaizQuadradaBtn = document.getElementById("getSquareRoot");
+
+
+function displayRaizQuadrada(){
+
+  getRaizQuadradaBtn.addEventListener(
+    "click",
+    function squareRoot(number) {
+      if (number < 0) {
+        throw new RangeError("You can't handle the truth");
+      }
+      return Math.sqrt(number);
+    },
+    false
+  );
+  
+
+}
+ */
