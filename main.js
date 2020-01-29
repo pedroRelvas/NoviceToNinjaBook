@@ -86,3 +86,70 @@ function displayRaizQuadrada(){
 
 }
  */
+
+function collatz(n, sequence = [n]) {
+  if (n === 1) {
+    return `Sequence took ${sequence.length} steps. It was ${sequence}`;
+  }
+
+  if (n % 2 === 0) {
+    n = n / 2;
+  } else {
+    n = 3 * n + 1;
+  }
+
+  return collatz(n, [...sequence, n]);
+}
+
+console.log(collatz(29));
+
+function cattz(numero, sequencia = [numero]) {
+  if (numero === 1) {
+    return `cabou-se. passos ${sequencia.length}. numeros: ${sequencia} `;
+  }
+
+  if (numero % 2 === 0) {
+    numero = numero / 2;
+  } else {
+    numero = 3 * numero + 1;
+  }
+
+  return cattz(numero, [...sequencia, numero]);
+}
+
+console.log(cattz(90));
+
+//creating a promise
+//object
+const dice = {
+  sides: 6,
+  roll() {
+    return Math.floor(this.sides * Math.random()) + 1;
+  }
+};
+
+console.log("Before the roll");
+
+const roll = new Promise((resolve, reject) => {
+  const n = dice.roll();
+  if (n > 1) {
+    setTimeout(() => {
+      resolve(n);
+    }, n * 200);
+  } else {
+    setTimeout(() => reject(n), n * 200);
+  }
+});
+
+roll
+  .then(result => console.log(`I rolled a ${result}`))
+  .catch(result => console.log(`Drat! ... I rolled a ${result}`));
+console.log("After the roll!");
+
+/* const promise = new Promise((resolve, reject) => {
+  const n = dice.roll();
+  setTimeout(() => {
+    n > 1 ? resolve(n) : reject(n);
+  }, n * 1000);
+});
+ */
