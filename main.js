@@ -128,7 +128,7 @@ const dice = {
   }
 };
 
-console.log("Before the roll");
+/* console.log("Before the roll");
 
 const roll = new Promise((resolve, reject) => {
   const n = dice.roll();
@@ -146,10 +146,28 @@ roll
   .catch(result => console.log(`Drat! ... I rolled a ${result}`));
 console.log("After the roll!");
 
-/* const promise = new Promise((resolve, reject) => {
-  const n = dice.roll();
-  setTimeout(() => {
-    n > 1 ? resolve(n) : reject(n);
-  }, n * 1000);
-});
  */
+//Objeto
+const carro = {
+  portas: 4,
+  abertas() {
+    return Math.floor(this.portas * Math.random());
+  }
+};
+
+const abertas = new Promise((resolve, reject) => {
+  const aberta = carro.abertas();
+  if (aberta >= 1) {
+    setTimeout(() => {
+      resolve(aberta);
+    }, aberta * 2000);
+  } else {
+    setTimeout(() => {
+      reject(aberta);
+    }, aberta * 200);
+  }
+});
+
+abertas
+  .then(result => console.log(`Estão cerca de ${result} portas abertas.`))
+  .catch(result => console.log(`Estão ${result} portas abertas!`));

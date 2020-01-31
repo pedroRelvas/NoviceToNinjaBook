@@ -87,9 +87,9 @@ function factorial(n) {
     return 1;
   } else {
     //don't get it, yet
+    console.log(n);
     return n * factorial(n - 1);
   }
 }
 
-console.log(factorial(0));
 console.log(factorial(4));
