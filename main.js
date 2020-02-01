@@ -151,7 +151,7 @@ console.log("After the roll!");
 const carro = {
   portas: 4,
   abertas() {
-    return Math.floor(this.portas * Math.random());
+    return Math.floor(Math.random() * (this.portas + 1));
   }
 };
 
@@ -160,14 +160,45 @@ const abertas = new Promise((resolve, reject) => {
   if (aberta >= 1) {
     setTimeout(() => {
       resolve(aberta);
-    }, aberta * 2000);
+    }, 200);
+  } else if (aberta === 4) {
+    setTimeout(() => {
+      resolve(aberta);
+    }, aberta * 100);
   } else {
     setTimeout(() => {
       reject(aberta);
-    }, aberta * 200);
+    }, 200);
   }
 });
 
 abertas
   .then(result => console.log(`Estão cerca de ${result} portas abertas.`))
+  .then(result => console.log(`Todas as ${result} portas estão abertas.`))
   .catch(result => console.log(`Estão ${result} portas abertas!`));
+
+function random(a, b = 1) {
+  if (b === 1) {
+    [a, b] = [b, a];
+  }
+
+  return console.log(Math.floor((b - a + 1) * Math.random() + a));
+}
+
+random(1, 6);
+
+//more flexibity
+function randomSecond(a, b, callback) {
+  if (b === undefined) (b = a), (a = 1);
+  const result = Math.floor((b - a + 1) * Math.random()) + a;
+  if (callback) {
+    result = callback(result);
+  }
+  return result;
+}
+
+function square(n) {
+  return n * n;
+}
+
+console.log("hey" + randomSecond(1, 6, square));
