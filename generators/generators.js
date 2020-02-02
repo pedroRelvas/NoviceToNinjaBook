@@ -21,7 +21,6 @@ function* relvasFibonacci(a, b) {
   let [prev, current] = [a, b];
   while (true) {
     [prev, current] = [current, prev + current];
-    console.log("current" + current);
     yield current;
   }
 }
@@ -32,3 +31,18 @@ for (n of relvasSequence) {
   if (n > 100) break;
   console.log(n);
 }
+
+//based on the following article: https://codeburst.io/understanding-generators-in-es6-javascript-with-examples-6728834016d5
+
+function* generatorFunction() {
+  console.log("This will be exectued first.");
+  yield "Hello, ";
+
+  console.log("I will be printed after the pause.");
+  yield "World";
+}
+
+const generatorObject = generatorFunction();
+
+console.log(generatorObject.next().value);
+console.log(generatorObject.next().value);
