@@ -1,4 +1,5 @@
-//for loop
+//Iterables
+//See "JavaScript Symbols: But Why?"
 
 const myFavouriteSongs = [
   "Moça",
@@ -48,6 +49,12 @@ const myFavouriteSongsByGenre = {
     for (const song of this.allGenres.Fado) {
       songs.push(song);
     }
-    return console.log(songs);
+
+    console.log(songs);
+    return songs;
   }
 };
+
+document.getElementById(
+  "myGenres"
+).innerHTML = myFavouriteSongsByGenre.getAllMySongs().join(", ");
