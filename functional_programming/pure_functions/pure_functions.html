@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pure Functions</title>
+  </head>
+  <body>
+    <p>
+      A key aspect of functional programing is its use of pure functions. A pure
+      function is a function that adheres to the following rules:
+    </p>
+    <ul>
+      <li>
+        The return value of a pure function
+        <b>should only depend on the values provided as arguments.</b> It
+        doesn't rely on values from somewhere else in the program.
+      </li>
+      <li>
+        There are no side-effects. A pure function
+        <b>doesn't change any values or data elsewhere in the program</b>. It
+        only makes non-destructive data transformations and returns new values,
+        rather than altering any of the underlying data.
+      </li>
+      <li>
+        Referential transparency. Given the same arguments, a pure function will
+        always return the same result.
+      </li>
+    </ul>
+
+    <p>In order to follow these rules, any pure function must have:</p>
+    <ul>
+      <li>
+        At least one argument; otherwise the return value must depend on
+        somethng other than the arguments of the function.
+      </li>
+      <li>
+        A return value; otherwise there's no point n the function(unless it has
+        changed something else in the program - in wich case it's broken the "no
+        side effects" rule
+      </li>
+    </ul>
+    <script src="pure_functions.js"></script>
+  </body>
+</html>
