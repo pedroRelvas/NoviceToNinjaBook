@@ -29,3 +29,31 @@ const calcTax = multiplier(0.22);
 console.log(calcTax);
 
 console.log(calcTax(400));
+
+//General CURRY() FUNCTION
+
+function curry(func, ...oldArgs) {
+	return function(...newArgs) {
+		const allArgs = [...oldArgs, ...newArgs];
+		return func(...allArgs);
+	};
+}
+
+//example of using curry() function
+const divider = (x, y) => x / y;
+
+//Here's the quotient (the quotient of two numbers is the result obtained by diving one number by another)
+console.log(divider(10, 5));
+
+//We can now use our curry() function to create a more specific function that finds the
+//reciprocal ( reciprocal of a number is the result obtained by
+// dividing one by the number. If you multiply a number b its reciprocal, the answer is always one)
+const reciprocal = curry(divider, 1);
+console.log(reciprocal);
+
+//This creates a new function called reciprocal()
+//this is basically the divider() function , with the first argument set as 1
+//now The reciprocal
+console.log(reciprocal(2));
+
+//this example show how currying uses generic functions as the building blocks for creating more speific funtions
