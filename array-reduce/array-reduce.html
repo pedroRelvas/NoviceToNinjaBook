@@ -69,15 +69,17 @@
 
 			function groupBy(objectArray, property) {
 				return objectArray.reduce(function(acc, obj) {
-					debugger;
+					// Get the key value
 					let key = obj[property];
-					debugger;
+					// If the acc(result) doesn't have an entry for that yet, create one
 					if (!acc[key]) {
 						debugger;
 						acc[key] = [];
 					}
+					// Add this entry to that entry
 					debugger;
 					acc[key].push(obj);
+					// Return the grouped result
 					debugger;
 					return acc;
 				}, {});
