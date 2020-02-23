@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Array method - reduce</title>
+	</head>
+	<body>
+		<h1>Reduce method</h1>
+		<p>
+			The reduce() method executes a reducer function (that you provide) on each
+			element of the array, resulting in a single output value.
+		</p>
+
+		<h3>Syntax</h3>
+		<p>
+			arr.reduce(callback( accumulator, currentValue[, index[, array]] )[,
+			initialValue])
+		</p>
+		<h3>Parameters</h3>
+		<p>
+			<b>callback:</b> A functionto execute on each element in the array (xcept
+			for the first, if no initialValue is supplied). I takes 4 arguments.
+			<br />
+			<b>currentValue</b> The curent element being processed in the array
+			<br />
+			<b>The index</b> of the current element being processed in the array.
+			Starts from index 0 if an initialValue is provided. Otherwise, it starts
+			from index 1.
+			<br />
+			<b>array</b> The array reduce() was called upon.
+			<br />
+			<b>initialValue</b>A value to use as the first argument to the first call
+			of the callback. If no initialVlue is supplied, the first element in the
+			array will be used and skipped. Calling reduce() on an empty array without
+			an initialValue will throw a TypeError.
+		</p>
+		<script>
+			const array = [1, 2, 3, 4];
+			const reducer = (accumulator, currentValue) => accumulator + currentValue;
+			console.log(array.reduce(reducer));
+
+			/*It is almost alwaya safer to provide an initialValue,
+			 because there can be up to four possible output types
+			 without initialValue, as shown in the following
+			 example.*/
+
+			console.log([{ x: 22 }, { x: 42 }].map(el => el.x).reduce(reducer, 1));
+
+			/*Sum of all the values of an array*/
+			let sum = [16, 32, 16, 32].reduce(function(a, b) {
+				return a + b;
+			}, 0);
+			console.log(sum);
+
+			/*Alternatively written with an arrow function*/
+			let initialValue = 0;
+			let soma = [{ x: 1 }, { x: 2 }, { x: 3 }, { x: 4 }].reduce(
+				(a, b) => a + b.x,
+				initialValue
+			);
+			console.log("soma" + soma);
+
+			/*Grouping objects by a property*/
+			let people = [
+				{ name: "Alice", age: 21 },
+				{ name: "Pedro", age: 16 },
+				{ name: "José", age: 20 }
+			];
+
+			function groupBy(objectArray, property) {
+				return objectArray.reduce(function(acc, obj) {
+					debugger;
+					let key = obj[property];
+					debugger;
+					if (!acc[key]) {
+						debugger;
+						acc[key] = [];
+					}
+					debugger;
+					acc[key].push(obj);
+					debugger;
+					return acc;
+				}, {});
+			}
+
+			let groupedPeople = groupBy(people, "age");
+
+			console.log(groupedPeople);
+		</script>
+	</body>
+</html>
