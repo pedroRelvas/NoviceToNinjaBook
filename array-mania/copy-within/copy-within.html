@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Array method - copyWithin</title>
+	</head>
+	<body>
+		<h1>CopyWithin method</h1>
+		<p>
+			The copyWithin() method shallow copies part of an array to another
+			location in the same array and returns it without modifying its length
+		</p>
+		<h3>Syntax</h3>
+		<p>
+			arr.copyWithin(target[, start[, end]])
+		</p>
+		<h3>Parameters</h3>
+		<p>
+			<b>target</b>Zero-based index at which to copy the sequence to. If
+			negative, target will be counted from the end. If target is at or greater
+			than arr.length, nothing will be copied. If target is positioned after
+			start, the copied sequence will be trimmed to fit arr.length.
+			<b>start</b>Zero-based index at which to start copying elements from. If
+			negative, start will be counted from the end. If start is ommited,
+			copyWithin will copy from index 0. <b>end</b>Zero-based index at which to
+			end copying elements from copyWithin copies up to but not incuding end. If
+			negative, end will be counted from the end. If end is ommited, copyWithin
+			will copy until the last index.
+			<br />
+			<script src="copy-within.js"></script>
+		</p>
+	</body>
+</html>
