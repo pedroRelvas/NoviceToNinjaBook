@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Array method - Every</title>
+	</head>
+	<body>
+		<h1>Every method</h1>
+		<p>
+      The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a bool value.
+
+    </p>
+		<h3>Syntax</h3>
+		<p>
+      arr.every(callback(element[, index[, array]])[, thisArg])
+    </p>
+    <h3>Parameters</h3>
+    <b>callback</b> A function to test for each element, taking three arguments:
+    <br><b>element</b> The current element being processed in the array.
+    <br><b>index</b> The index of the current element being processed in the array.
+    <br><b>element</b> The current element being processed in the array.
+    <br><b>array</b> The array every was called upon.
+    <br><b>thisArg</b> A value to use as this when executing callback.
+			<script>
+      const test = (currentValue) => currentValue < 40;
+      const array1 = [1,30,39,29,10,1];
+
+      console.log(array1.every(test))
+
+      let arr = [1, 2, 3, 4];
+    console.log(arr.every( (elem, index, arr) => {
+      arr[index+1] -= 1
+      console.log(`[${arr}][${index}] -> ${elem}`)
+      return elem < 2 
+    }))
+      </script>
+		</p>
+	</body>
+</html>
