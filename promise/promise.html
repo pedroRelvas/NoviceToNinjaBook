@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Promise</title>
+	</head>
+	<body>
+		<p>Using Promises</p>
+		<h1>Forget this, see the mzdocumentian instead</h1>
+		<p>
+			A Promise is an object representing the eventual completion or failure of
+			an asynchrnous operation. Since most people are consumers of
+			already-reated promises, this guide will explain consumption of returned
+			promises before explaining how to create them. Essentially,a promise is a
+			returned object to which you attach callbacks, instead of passing
+			callbacks into a function. Imagine a function, createAudioFileAsync(),
+			which asynchronously generates a sound file given a configuraton record
+			and two callback functions, one called if the audo file is successfully
+			created, and the other called if an error occurs.
+		</p>
+		<h2>Guarantees</h2>
+		<p>
+			Unlike "old-style", passed-in callbacks, a promise comes with some
+			guarantees:/p>
+		</p>
+		<ul>
+			<li>
+				Callbacks will never be called before completion of the current run of
+				the JS event loop.
+			</li>
+			<li>
+				Callbaks added with then() even after the success or failure of the
+				asynchronous operation, will be called, as above.
+			</li>
+			<li>
+				Multiple callbacks may be added by calling then() several times. Each
+				callback is executed one after another, in the order in which they were
+				inserted.
+			</li>
+		</ul>
+		<h2>Chaining</h2>
+		<p>
+			ommon need is to eecute two or mor easynchronous operatons back to back,
+			where each subsequent operation starts when the previous operation
+			succeeds, with the result from the previous step. We accomplish this by
+			creating a promise chain.
+		</p>
+		<script>
+			//if createAudioFileAsync() were rewritte to return a promise, using it could be as simple as this:
+			createAudioFileAsync(audioSetting).then(successCallback, failureCallback);
+			//That's shorthand for:
+			//We call this an asynchronous function call. This convention has several advantages.
+			const promise = createAudioFileAsync(audioSettings);
+			promise.then(sucessCallback, failureCallback);
+			//With modern functions, we attach our callbacks to the returned promises instead, forming a promise chain:
+			doSomething()
+				.then(function(result) {
+					return doSomethingElse(result);
+				})
+				.then(function(newResult) {
+					return doThirdThing(newResult);
+				})
+				.then(function(finalResult) {
+					console.log("Got the final result: " + finalResult);
+				})
+				.catch(failureCallback);
+		</script>
+	</body>
+</html>
