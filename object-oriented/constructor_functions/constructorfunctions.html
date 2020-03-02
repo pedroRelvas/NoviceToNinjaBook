@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Constructor Functions</title>
+	</head>
+	<body>
+		<p>Object-oriented Programng in JavaScript</p>
+		<a href="constructor_functions/constructorfunctions.html"
+			>Constructor Functions</a
+		>
+		<p></p>
+
+		<script>
+			//Here's a object:
+			const dice = {
+				sides: 6,
+				roll() {
+					return Math.floor(this.sides * Math.random() + 1);
+				}
+			};
+
+			//An alternative way to create objects is to use a constructor function.
+			//This is a function that defines the properties and methods of an object. Here is the dice example rewritten as a constructor function:
+			const Dice = function(sides = 6) {
+				this.sides = sides;
+				this.roll = function() {
+					return Math.floor(this.sides * Math.random() + 1);
+				};
+			};
+			//The keyword this is used to represent the object that will be returned by the constructor function. In the previous example, we use it to set the sides property to the argument that is providedd to the constructor function, or 6, if no argument is provided. It also adds a method called roll(), which returns a random number from 1 up o the number of sides the dice has.
+			//We can now create an instance of the dice constructor function using the new operator:
+			const redDice = new Dice(4);
+			redDice instanceof Dice;
+		</script>
+	</body>
+</html>
