@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Static Template</title>
-  </head>
-  <body>
-    <form name="search" action="/search">
-      <input name="searchInput" />
-      <button type="submit">Search</button>
-      <button type="reset">Reset</button>
-    </form>
-    <a href="hero/hero.html">Go to hero page </a>
-    <br />
-    <a href="further_functions/functions.html">Mais functions</a>
-    <br />
-    <a href="generators/generators.html">Generators</a>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Interview Exercises (37 Essential JS Interview Questions</title>
+	</head>
+	<body>
+		<p>
+			1 -> What is a potental pitfall with using typeof bar === "object" to
+			determine if bar is an object? How can this pitfall be avoided?
+		</p>
 
-    <div>
-      <form name="formRaiz">
-        <input name="raizQuadrada" />
-      </form>
-
-      <button id="getSquareRoot" onclick="squareRoot()">Get SquareROOT</button>
-      <p id="resultado"></p>
-    </div>
-
-    <script src="/main.js"></script>
-  </body>
+		<p>
+			1 -> What will the code below output to the console and why?
+			<br />
+			<code>
+				(function(){ var a = b = 3; })(); console.log("a defined?" + (typeof a
+				!== "undefined")); console.log("b defined?" + (typeof b !==
+				"undefined"));
+			</code>
+		</p>
+		<script src="/main.js"></script>
+	</body>
 </html>
